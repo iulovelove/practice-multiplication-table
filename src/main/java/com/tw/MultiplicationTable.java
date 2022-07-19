@@ -1,5 +1,7 @@
 package com.tw;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -24,7 +26,12 @@ public class MultiplicationTable {
     }
 
     public String generateTable(int start, int end) {
-        return null;
+        ArrayList<String> results = new ArrayList<>();
+        for (int row=start; row<= end; row++){
+            String single = generateLine(start, row);
+            results.add(single);
+        }
+        return String.join(System.lineSeparator(),results);
     }
 
     public String generateLine(int start, int row) {
