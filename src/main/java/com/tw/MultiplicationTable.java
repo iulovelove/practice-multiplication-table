@@ -1,5 +1,8 @@
 package com.tw;
 
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+
 public class MultiplicationTable {
     public String create(int start, int end) {
         if (isValid(start, end)){
@@ -25,7 +28,9 @@ public class MultiplicationTable {
     }
 
     public String generateLine(int start, int row) {
-        return null;
+        return IntStream.rangeClosed(start,row)
+                .mapToObj(i -> generateSingleExpression(i,row))
+                .collect(Collectors.joining(" "));
     }
 
     public String generateSingleExpression(int multiplicand, int multiplier) {
