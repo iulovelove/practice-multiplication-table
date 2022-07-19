@@ -2,6 +2,9 @@ package com.tw;
 
 public class MultiplicationTable {
     public String create(int start, int end) {
+        if (isValid(start, end)){
+            return generateTable(start, end);
+        };
         return null;
     }
 
@@ -26,6 +29,7 @@ public class MultiplicationTable {
     }
 
     public String generateSingleExpression(int multiplicand, int multiplier) {
-        return null;
+
+        return String.format("%d*%d=%d",multiplicand,multiplier,multiplicand*multiplier);
     }
 }
